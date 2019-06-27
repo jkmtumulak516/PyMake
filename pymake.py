@@ -161,7 +161,7 @@ def generateFileContents(fileType, compilerName):
 
      # Main compilation
     fileContents += "$(TARGET): " + ("\n" if fileType == "go" else "$(OBJECTS)\n")
-    fileContents += "\t$(PYMAKE_COMPILER) " + ("$(PYMAKE_COMPILER_FLAGS) " if fileType == "go" else "") + "-o $(TARGET) " + ("$(SOURCES)" if fileType == "go" else "$^") + "\n\n"
+    fileContents += "\t$(PYMAKE_COMPILER) " + ("$(PYMAKE_COMPILER_FLAGS) " if fileType == "go" else "") + "-o $(TARGET) " + ("$(SOURCES)" if fileType == "go" else "$^") + " -lm\n\n"
 
     # Object files
     if fileType != "go":
